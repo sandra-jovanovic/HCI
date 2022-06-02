@@ -1,0 +1,44 @@
+﻿<Page x:Class="HCI_projekat.View.RequestsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HCI_projekat.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="RequestsPage">
+
+    <Grid Margin="0 0 0 10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="0" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            
+            <ListView Margin="10 10 10 10" BorderBrush="Black" BorderThickness="2" Name="lwMain">
+                <ListViewItem Name="liOprema" Selected="liOprema_Selected">
+                    <TextBlock ToolTipService.IsEnabled="{Binding Path=IsTooltipEnabled}" ToolTip="Zahtev za premeštanje opreme" FontSize="10">Oprema</TextBlock>
+                </ListViewItem>
+                <ListViewItem Name="liRadnoVreme" Selected="liRadnoVreme_Selected">
+                    <TextBlock ToolTipService.IsEnabled="{Binding Path=IsTooltipEnabled}" ToolTip="Zahtev za promenu radnog vremena" FontSize="10">Radno vreme</TextBlock>
+                </ListViewItem>
+                <ListViewItem Name="liSlobodniDani" Selected="liSlobodniDani_Selected">
+                    <TextBlock ToolTipService.IsEnabled="{Binding Path=IsTooltipEnabled}" ToolTip="Zahtev za slobodne dane" FontSize="10">Slobodni dani</TextBlock>
+                </ListViewItem>
+            </ListView>
+        </Grid>
+
+        <Frame Grid.Column="1" x:Name="frRequestsPage">
+            
+        </Frame>
+        
+    </Grid>
+</Page>

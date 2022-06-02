@@ -1,0 +1,68 @@
+﻿<Page x:Class="HCI_projekat.View.ExaminationView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HCI_projekat.View"
+      mc:Ignorable="d" 
+      Title="ExaminationView" Background="Transparent" Height="350" Width="799">
+
+    <Grid Margin="100 0 0 0">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Label Content="Zakazani pregledi" FontWeight="Bold" FontSize="25" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" Margin="0,10,10,10"></Label>
+
+            <Grid Grid.Row="1" Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Row="0" Margin="0 0 0 5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBox x:Name="tbSearch" Grid.Column="0" />
+
+                    <Button Name="btnPretraga" Grid.Column="1" Content="Pretraga" Margin="10,0,0,0" Height="20" VerticalAlignment="Top" Click="btnPretraga_Click" />
+                </Grid>
+
+                <DataGrid ItemsSource="{Binding Examinations}" Grid.Row="1" Grid.Column="0" Height="250" Width="550" x:Name="dataGridExamination" IsReadOnly="True" SelectionMode="Single" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Ime" Binding="{Binding FirstName}" Width="*"/>
+                        <DataGridTextColumn Header="Prezime" Binding="{Binding LastName}" Width="*"/>
+                        <DataGridTextColumn Header="Broj kartona" Binding="{Binding MedicalRecord}" Width="*"/>
+                        <DataGridTextColumn Header="Datum" Binding="{Binding Date}" Width="*"/>
+                        <DataGridTextColumn Header="Vreme" Binding="{Binding Date}" Width="*"/>
+                        <DataGridTextColumn Header="Prostorija" Binding="{Binding Room}" Width="*"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+
+                <StackPanel  Grid.Row="1" Grid.Column="1" Orientation="Vertical" VerticalAlignment="Bottom" >
+                    <Button  Width="100" Name="btnObaviPregled" Content="Obavi"  FontSize="15" FontWeight="Bold" Margin="15,10,0,10" Foreground="Gray" ToolTipService.IsEnabled="{Binding Path=IsTooltipEnabled}" ToolTip="Obavljanje pregleda" Click="btnObaviPregled_Click" />
+                    <Button  Width="100" Name="btnZakazi" Content="Zakazi"  FontSize="15" Margin="15,0,0,10"  FontWeight="Bold" Foreground="Gray" Click="OpenSchedule" ToolTipService.IsEnabled="{Binding Path=IsTooltipEnabled}" ToolTip="Zakazivanje novog pregleda" />
+                    <Button Width="100" Name="btnIzmeni" Content="Izmeni"  FontSize="15" Margin="15,0,0,10"  FontWeight="Bold" Foreground="Gray" ToolTipService.IsEnabled="{Binding Path=IsTooltipEnabled}" ToolTip="Izmena pregleda" Click="btnIzmeni_Click" />
+                    <Button Width="100" Name="btnOtkazi" Content="Otkazi"  FontSize="15" Margin="15,0,0,0"  FontWeight="Bold" Foreground="Gray" ToolTipService.IsEnabled="{Binding Path=IsTooltipEnabled}" ToolTip="Otkazivanje pregleda" Click="btnOtkazi_Click" />
+
+                </StackPanel>
+            </Grid>
+
+        </Grid>
+    </Grid>
+</Page>

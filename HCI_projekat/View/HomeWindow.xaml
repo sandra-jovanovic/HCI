@@ -1,0 +1,63 @@
+﻿<Window x:Class="HCI_projekat.View.HomeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HCI_projekat.View"
+        mc:Ignorable="d"
+        Title="HomeWindow" Height="450" Width="800" Background="#c5faef">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        
+        <StackPanel Grid.Row="0">
+            <StackPanel Height="50" Orientation="Horizontal" Margin="0,15,0,0">
+                <Image Margin="30 0 30 0" ToolTipService.IsEnabled="{Binding Path=IsTooltipEnabled}" ToolTip="Bolnica" Width="40" Height="40" VerticalAlignment="Center">
+                    <Image.Source>
+                        <BitmapImage UriSource="/Images/h_icon.png" />
+                    </Image.Source>
+                </Image>
+                <ListView  Background="Transparent" HorizontalContentAlignment="Center" Height="50"  FontSize="19" x:Name="lwMain">
+
+                    <ListViewItem Width="90" Selected="Pregledi_Selected" Name="test" BorderThickness="1" BorderBrush="Black">
+                        <TextBlock Background="Transparent" Name="btnPregled" ToolTipService.IsEnabled="{Binding Path=IsTooltipEnabled}" ToolTip="Pregled kod lekara">Pregled</TextBlock>
+                    </ListViewItem>
+
+                    <ListViewItem Width="90" Selected="Requirements_Selected" BorderThickness="1" BorderBrush="Black" >
+                        <TextBlock Background="Transparent" ToolTipService.IsEnabled="{Binding Path=IsTooltipEnabled}" ToolTip="Kreirajte zahtev">Zahtevi</TextBlock>
+                    </ListViewItem>
+
+                    <ListViewItem Width="90" Selected="Kartoni_Selected" BorderThickness="1" BorderBrush="Black">
+                        <TextBlock Background="Transparent" ToolTipService.IsEnabled="{Binding Path=IsTooltipEnabled}" ToolTip="Pregled zdravstvenih kartona">Kartoni</TextBlock>
+                    </ListViewItem>
+
+                    <ListViewItem Name="lwLekovi" Width="100" BorderThickness="1" BorderBrush="Black" Selected="lwLekovi_Selected" >
+                        <TextBlock Background="Transparent" ToolTipService.IsEnabled="{Binding Path=IsTooltipEnabled}" ToolTip="Pregled lekova">Lekovi</TextBlock>
+                    </ListViewItem>
+
+                    <ListViewItem Name="liNotifikacije" Width="130" BorderThickness="1" BorderBrush="Black" Selected="liNotifikacije_Selected">
+                        <TextBlock Background="Transparent" ToolTipService.IsEnabled="{Binding Path=IsTooltipEnabled}" ToolTip="Pregled notifikacija">Notifikacije</TextBlock>
+                    </ListViewItem>
+
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal" />
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                </ListView>
+                <StackPanel Margin="10 0 0 0" Orientation="Horizontal" VerticalAlignment="Center">
+                    <CheckBox Name="chbPomoc" VerticalAlignment="Center" IsChecked="{Binding Path=IsTooltipEnabled}" Content="Pomoć" Checked="chbPomoc_Checked" Unchecked="chbPomoc_Unchecked" />
+                </StackPanel>
+                <Button Name="btnOdjava" Content="Odjava" Background="#c5faef" Height="25" Width="40" BorderThickness="0" Foreground="Blue" Margin="25,0,0,0" Click="btnOdjava_Click"></Button>
+            </StackPanel>
+        </StackPanel>
+
+        <Frame x:Name="MainFrameDoctor" NavigationUIVisibility="Hidden" Grid.Row="1" />
+    </Grid>
+</Window>

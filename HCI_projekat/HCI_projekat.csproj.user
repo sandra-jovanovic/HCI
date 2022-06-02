@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="View\Examinations\ChangeExamination.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\Examinations\EditExistingExaminationView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\Medicines\MedicinesPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\Medicines\SingleMedicinePage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\Requests\EquipmentMovingPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\Examinations\ExaminationView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\Examinations\ExamineExaminationPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\Requests\FreeDaysRequestPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\HomeWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\Examinations\InstructionToSpecialistPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\Examinations\KeepingInHospitalPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\LoginPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\MedicalRecord\MedicalRecordPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\Examinations\MedicalExcusePage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\MedicalRecord\MedicalRecordsPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\NotificationsPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\Requests\RequestsPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\Examinations\ScheduleNewExaminationView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\Requests\WorkingHoursChangePage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Examinations\ChangeExamination.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Examinations\EditExistingExaminationView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Medicines\MedicinesPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Medicines\SingleMedicinePage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Requests\EquipmentMovingPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Examinations\ExaminationView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Examinations\ExamineExaminationPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Requests\FreeDaysRequestPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\HomeWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Examinations\InstructionToSpecialistPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Examinations\KeepingInHospitalPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\LoginPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\MedicalRecord\MedicalRecordPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Examinations\MedicalExcusePage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\MedicalRecord\MedicalRecordsPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\NotificationsPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Requests\RequestsPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Examinations\ScheduleNewExaminationView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Requests\WorkingHoursChangePage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

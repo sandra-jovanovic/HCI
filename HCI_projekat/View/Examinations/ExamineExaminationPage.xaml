@@ -1,0 +1,145 @@
+﻿<Page x:Class="HCI_projekat.View.ExamineExaminationPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HCI_projekat.View" xmlns:my="clr-namespace:HCI_projekat.Utils"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ExamineExaminationPage">
+
+    <Page.Resources>
+        <my:TextboxToIntConverter x:Key="customIntToStringConverter" />
+    </Page.Resources>
+    
+    <Grid Margin="100 10 10 10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Label Content="Pregled:" FontSize="24" Grid.Row="0" Grid.Column="0" />
+
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0">
+            <Label Content="Ime:" FontSize="15" FontWeight="Bold" />
+            <Label Content="{Binding Path=Name}" FontSize="15" FontWeight="Bold" />
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="0">
+            <Label Content="Prezime:" FontSize="15" FontWeight="Bold" />
+            <Label Content="{Binding Path=LastName}" FontSize="15" FontWeight="Bold" />
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
+            <Label Content="Datum pregleda:" FontSize="15" FontWeight="Bold" />
+            <Label Content="{Binding Path=ExaminationDate}" FontSize="15" FontWeight="Bold" />
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1">
+            <Label Content="Vreme pregleda:" FontSize="15" FontWeight="Bold" />
+            <Label Content="{Binding Path=ExaminationTime}" FontSize="15" FontWeight="Bold" />
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="2">
+            <Label Content="Broj kartona:" FontSize="15" FontWeight="Bold" />
+            <Label Content="{Binding Path=MedicalRecord}" FontSize="15" FontWeight="Bold" />
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="2">
+            <Label Content="Sala:" FontSize="15" FontWeight="Bold" />
+            <Label Content="{Binding Path=Room}" FontSize="15" FontWeight="Bold" />
+        </StackPanel>
+
+        <Label Content="Beleške" Grid.Row="4" Grid.Column="0" FontSize="14" />
+
+        <Grid Grid.Row="5" Grid.ColumnSpan="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            
+            <TextBox x:Name="tbBeleske"  Height="120" Grid.Column="0" BorderBrush="Black" BorderThickness="2" Margin="0 15 15 -0" Text="{Binding Path=Notes}"/>
+
+            <Grid Grid.Row="5" Grid.Column="1" Margin="10 20 10 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Content="Terapija:" Grid.Row="0" Grid.Column="0" />
+                <ComboBox Name="cbTherapies" Grid.Row="0" Grid.Column="1" Height="20" SelectedValue="{Binding Path=Therapy, ValidatesOnExceptions=True, UpdateSourceTrigger=LostFocus}" />
+            </Grid>
+
+
+            <Grid Grid.Row="1" Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Content="Trajanje terapije:" Grid.Row="0" Grid.Column="0" />
+                <TextBox Grid.Row="0" Grid.Column="1" Height="20" Width="30" HorizontalAlignment="Right" Text="{Binding Path=TherapyDuration, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource customIntToStringConverter}}" />
+            </Grid>
+
+                <Grid Grid.Row="2" Grid.Column="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label Content="Dnevna terapija:" Grid.Row="0" Grid.Column="0" />
+                    <TextBox Grid.Row="0" Grid.Column="1" Height="20" Width="30" HorizontalAlignment="Right" Text="{Binding Path=DailyTherapyDuration, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource customIntToStringConverter}}" />
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Row="5" Grid.Column="2" VerticalAlignment="Bottom">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Button x:Name="btnUputiKodSpecijaliste" FontSize="11" Content="Uputi kod specijaliste" HorizontalAlignment="Center" Padding="5" Click="btnUputiKodSpecijaliste_Click" Margin="0 0 0 10" ToolTipService.IsEnabled="{Binding Path=IsTooltipEnabled}" ToolTip="Kreiranje uputa kod specijaliste" Grid.Row="0" Width="130" />
+
+                <Button x:Name="btnZadrziUBolnici" FontSize="11" Content="Zadrži u bolnici" HorizontalAlignment="Center" Padding="5" Click="btnZadrziUBolnici_Click" Margin="0 0 0 10" ToolTipService.IsEnabled="{Binding Path=IsTooltipEnabled}" ToolTip="Kreiranje naloga za zadržavanje u bolnici" Grid.Row="1" Width="130" />
+
+                <Button x:Name="btnOpravdanje" FontSize="11" Content="Izdaj opravdanje" HorizontalAlignment="Center" Padding="5" Click="Button_Click" ToolTipService.IsEnabled="{Binding Path=IsTooltipEnabled}" ToolTip="Izdavanje opravdanja" Grid.Row="2" Width="130" />
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="6" Grid.Column="1" Margin="0 10 0 0">
+            <Button Name="btnDodajUKarton" Content="Dodaj u karton" Padding="10" Grid.ColumnSpan="2" Grid.Row="4" HorizontalAlignment="Center" Click="btnDodajUKarton_Click" ToolTipService.IsEnabled="{Binding Path=IsTooltipEnabled}" ToolTip="Dodajte zapis u karton" IsEnabled="{Binding Path=WithoutError}" />
+        </Grid>
+    </Grid>
+</Page>
