@@ -17,6 +17,13 @@ namespace HCI_projekat.View
         public HomeWindow()
         {
             InitializeComponent();
+            double screenWidth = SystemParameters.PrimaryScreenWidth;
+            double screenHeight = SystemParameters.PrimaryScreenHeight;
+            double windowWidth = this.Width;
+            double windowHeight = this.Height;
+            Left = (screenWidth / 2) - (windowWidth / 2);
+            Top = (screenHeight / 2) - (windowHeight / 2);
+
             viewModel = new HomeWindowViewModel();
             DataContext = viewModel;
 

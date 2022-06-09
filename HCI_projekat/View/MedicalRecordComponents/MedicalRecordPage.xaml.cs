@@ -1,4 +1,5 @@
 ﻿using HCI_projekat.Model;
+using HCI_projekat.View.MedicalRecordComponents;
 using HCI_projekat.ViewModels.MedicalRecords;
 using System;
 using System.Collections.Generic;
@@ -16,9 +17,9 @@ namespace HCI_projekat.View
         private SingleMedicalRecordViewModel viewModel;
         private List<MedicalReport> reports = new()
         {
-            new MedicalReport(DateTime.Parse("02-02-2022"), "Pacijent nije imao simptome na kontroli"),
-            new MedicalReport(DateTime.Parse("12-05-2022"), "Pacijent je imao problema sa vidom"),
-            new MedicalReport(DateTime.Parse("12-06-2022"), "Redovna kontrola, sve je bilo u redu"),
+            new MedicalReport(DateTime.Parse("02-02-2022"), "Pacijent nije imao simptome na kontroli", "Na prethodnom pregledu, pacijent se žalio na bol u stomaku. Pregledom je utvrđena prehlada, pa je pacijentu prepisana terapija mirovanja."),
+            new MedicalReport(DateTime.Parse("12-05-2022"), "Pacijent je imao problema sa vidom", "Na prethodnom pregledu, pacijent se žalio na bol u stomaku. Pregledom je utvrđena prehlada, pa je pacijentu prepisana terapija mirovanja."),
+            new MedicalReport(DateTime.Parse("12-06-2022"), "Redovna kontrola, sve je bilo u redu", "Na prethodnom pregledu, pacijent se žalio na bol u stomaku. Pregledom je utvrđena prehlada, pa je pacijentu prepisana terapija mirovanja."),
         };
 
         public MedicalRecordPage(MedicalRecord medicalRecord)
@@ -50,7 +51,14 @@ namespace HCI_projekat.View
             DateTime endDate = dpKraj.SelectedDate == null ? DateTime.MaxValue : (DateTime)dpKraj.SelectedDate;
 
             var filteredReports = reports.Where(r => startDate <= r.Date && r.Date <= endDate);
-            lwIzvestaji.ItemsSource = filteredReports.Select(r => r.Date + " - " + r.Report).ToList();
+            lwIzvestaji.ItemsSource = filteredReports;
+        }
+
+        private void ListViewItem_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            var medicalReport = (MedicalReport)lwIzvestaji.SelectedItem;
+            MedicalRecordDetailsWindow window = new(medicalReport);
+            window.ShowDialog();
         }
     }
 }

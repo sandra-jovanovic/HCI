@@ -1,18 +1,8 @@
-﻿using HCI_projekat.View;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using HCI_projekat.Navigation;
+using HCI_projekat.View;
+using HCI_projekat.Wizard;
+using System.IO;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace HCI_projekat
 {
@@ -25,12 +15,25 @@ namespace HCI_projekat
         public MainWindow()
         {
             InitializeComponent();
+            double screenWidth = SystemParameters.PrimaryScreenWidth;
+            double screenHeight = SystemParameters.PrimaryScreenHeight;
+            double windowWidth = this.Width;
+            double windowHeight = this.Height;
+            Left = (screenWidth / 2) - (windowWidth / 2);
+            Top = (screenHeight / 2) - (windowHeight / 2);
 
             LoginPage loginPage = new LoginPage();
             MainFrame.NavigationService.Navigate(loginPage);
+
+            if (!File.Exists("app_used.bin"))
+            {
+                WizardWindow win = new WizardWindow();
+                win.ShowDialog();
+
+                File.Create("app_used.bin");
+            }
+
         }
 
-
-     
     }
 }

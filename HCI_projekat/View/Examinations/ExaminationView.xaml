@@ -20,7 +20,7 @@
 
             <Label Content="Zakazani pregledi" FontWeight="Bold" FontSize="25" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" Margin="0,10,10,10"></Label>
 
-            <Grid Grid.Row="1" Grid.Column="0">
+            <Grid Grid.Row="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"></RowDefinition>
                     <RowDefinition Height="Auto"></RowDefinition>
@@ -31,10 +31,11 @@
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
 
-                <Grid Grid.Row="0" Margin="0 0 0 5">
+                <Grid Grid.Row="0" Margin="0 0 0 5" >
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
                     <TextBox x:Name="tbSearch" Grid.Column="0" />
@@ -47,8 +48,8 @@
                         <DataGridTextColumn Header="Ime" Binding="{Binding FirstName}" Width="*"/>
                         <DataGridTextColumn Header="Prezime" Binding="{Binding LastName}" Width="*"/>
                         <DataGridTextColumn Header="Broj kartona" Binding="{Binding MedicalRecord}" Width="*"/>
-                        <DataGridTextColumn Header="Datum" Binding="{Binding Date}" Width="*"/>
-                        <DataGridTextColumn Header="Vreme" Binding="{Binding Date}" Width="*"/>
+                        <DataGridTextColumn Header="Datum" Binding="{Binding Date, StringFormat=d}" Width="*"/>
+                        <DataGridTextColumn Header="Vreme" Binding="{Binding Date, StringFormat=t}" Width="*"/>
                         <DataGridTextColumn Header="Prostorija" Binding="{Binding Room}" Width="*"/>
                     </DataGrid.Columns>
                 </DataGrid>

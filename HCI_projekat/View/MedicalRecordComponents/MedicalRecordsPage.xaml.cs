@@ -3,7 +3,6 @@ using HCI_projekat.Model;
 using HCI_projekat.Navigation;
 using HCI_projekat.ViewModels.MedicalRecords;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
@@ -18,7 +17,7 @@ namespace HCI_projekat.View
     public partial class MedicalRecordsPage : Page
     {
         private MedicalRecordsOverviewViewModel viewModel;
-        private readonly ObservableCollection<MedicalRecord> _medicalRecords = new ()
+        private readonly ObservableCollection<MedicalRecord> _medicalRecords = new()
         {
             new MedicalRecord("Ana", "Ikonic", "A776", DateTime.Parse("02-05-2001"), "12432483672135", "Radnicka 12", "064777888", false, true),
             new MedicalRecord("Milana", "Dokic", "k16a", DateTime.Parse("11-11-2002"), "21543483672135", "Solunska 24", "063111288", false, false),

@@ -74,6 +74,12 @@ namespace HCI_projekat.View
 
         private void btnIzmeni_Click(object sender, RoutedEventArgs e)
         {
+            if (dataGridExamination.SelectedIndex == -1)
+            {
+                MessageBox.Show("Nijedan pregled nije izabran");
+                return;
+            }
+
             var selecedExamination = (ScheduledExamination)dataGridExamination.SelectedItem;
             HomePageStateManager.NavigationFrame.Navigate(new EditExistingExaminationView(selecedExamination));
         }
@@ -83,7 +89,9 @@ namespace HCI_projekat.View
             var filter = tbSearch.Text.ToLower();
             var filteredList = examinations.Where(e => e.FirstName.ToLower().Contains(filter) ||
                                                   e.LastName.ToLower().Contains(filter) || 
-                                                  e.MedicalRecord.ToLower().Contains(filter)).ToList();
+                                                  e.MedicalRecord.ToLower().Contains(filter) ||
+                                                  e.Room.ToLower().Contains(filter) ||
+                                                  e.Date.ToString().Contains(filter)).ToList();
 
             viewModel.Examinations = new ObservableCollection<ScheduledExamination>(filteredList);
         }

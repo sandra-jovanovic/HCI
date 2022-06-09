@@ -19,10 +19,14 @@ namespace HCI_projekat.View
             "Lekovi", "Injekcije", "Odmor"
         };
         private ExamineExaminationViewModel viewModel;
+        private readonly ScheduledExamination _examination;
 
         public ExamineExaminationPage(ScheduledExamination examination)
         {
             InitializeComponent();
+
+            _examination = examination;
+
             cbTherapies.ItemsSource = _therapyTypes;
 
             viewModel = new();
@@ -43,17 +47,17 @@ namespace HCI_projekat.View
 
         private void btnUputiKodSpecijaliste_Click(object sender, RoutedEventArgs e)
         {
-            HomePageStateManager.NavigationFrame.Navigate(new InstructionToSpecialistPage());
+            HomePageStateManager.NavigationFrame.Navigate(new InstructionToSpecialistPage(_examination));
         }
 
         private void btnZadrziUBolnici_Click(object sender, RoutedEventArgs e)
         {
-            HomePageStateManager.NavigationFrame.Navigate(new KeepingInHospitalPage());
+            HomePageStateManager.NavigationFrame.Navigate(new KeepingInHospitalPage(_examination));
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            HomePageStateManager.NavigationFrame.Navigate(new MedicalExcusePage());
+            HomePageStateManager.NavigationFrame.Navigate(new MedicalExcusePage(_examination));
         }
 
         private void OnChangeInTooltipEnablingReceived(bool isTooltipEnabled)

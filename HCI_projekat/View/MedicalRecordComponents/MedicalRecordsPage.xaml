@@ -22,8 +22,9 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-
+            
             <TextBox x:Name="tbSearch" Grid.Column="0" />
             <Button x:Name="btnSearch" Content="Pretrazi" Grid.Column="1" Margin="10,0,0,0" Height="20" VerticalAlignment="Top" Click="btnSearch_Click" />
         </Grid>

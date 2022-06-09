@@ -8,7 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="KeepingInHospitalPage">
 
-    <Grid Margin="10">
+    <Grid Margin="100 10 10 10">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
@@ -116,8 +116,9 @@
             </Grid>
         </Grid>
 
-        <Grid Grid.Row="2" >
-            <Button Content="Pošalji" Padding="5" Width="60" ToolTipService.IsEnabled="{Binding Path=IsTooltipEnabled}" ToolTip="Potvrdite zadržavanje u bolnici" Click="Button_Click" />
-        </Grid>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" >
+            <Button Name="btnOdustani" Content="Odustani" Padding="5" Width="60" Click="btnOdustani_Click" ToolTipService.IsEnabled="{Binding Path=IsTooltipEnabled}" ToolTip="Odustanite" />
+            <Button Content="Pošalji" Padding="5" Width="60" Margin="10 0 0 0" ToolTipService.IsEnabled="{Binding Path=IsTooltipEnabled}" ToolTip="Potvrdite zadržavanje u bolnici" Click="Button_Click" />
+        </StackPanel>
     </Grid>
 </Page>

@@ -8,7 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="InstructionToSpecialistPage">
 
-    <Grid Margin="10">
+    <Grid Margin="100 10 10 10">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
@@ -125,8 +125,9 @@
             </Grid>
         </Grid>
 
-        <Grid Grid.Row="2" >
-            <Button Name="btnPotvrdi" Content="Potvrdi" Padding="5" Width="60" HorizontalAlignment="Center" Click="btnPotvrdi_Click" ToolTipService.IsEnabled="{Binding Path=IsTooltipEnabled}" ToolTip="Potvrdite uput za specijalistu" />
-        </Grid>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" >
+            <Button Name="btnOdustani" Content="Odustani" Padding="5" Width="60" Click="btnOdustani_Click" ToolTipService.IsEnabled="{Binding Path=IsTooltipEnabled}" ToolTip="Odustanite" />
+            <Button Name="btnPotvrdi" Content="Potvrdi" Padding="5" Width="60" Margin="10 0 0 0" Click="btnPotvrdi_Click" ToolTipService.IsEnabled="{Binding Path=IsTooltipEnabled}" ToolTip="Potvrdite uput za specijalistu" />
+        </StackPanel>
     </Grid>
 </Page>

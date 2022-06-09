@@ -1,4 +1,5 @@
 ﻿using HCI_projekat.Events;
+using HCI_projekat.Model;
 using HCI_projekat.Navigation;
 using HCI_projekat.ViewModels.Examination;
 using System;
@@ -18,17 +19,20 @@ namespace HCI_projekat.View
             "Kardiolog", "Neurolog", "Hirurg"
         };
         private InstructionToSpecialistViewModel viewModel;
-        public InstructionToSpecialistPage()
+        private readonly ScheduledExamination _examination;
+        public InstructionToSpecialistPage(ScheduledExamination examination)
         {
             InitializeComponent();
 
+            _examination = examination;
+
             viewModel = new();
-            viewModel.Name = "Sandra";
-            viewModel.LastName = "Jovanovic";
-            viewModel.ExaminationDate = DateOnly.FromDateTime(DateTime.Now);
-            viewModel.ExaminationTime = TimeOnly.FromDateTime(DateTime.Now);
-            viewModel.MedicalRecord = "1352B";
-            viewModel.Room = "12-C";
+            viewModel.Name = examination.FirstName;
+            viewModel.LastName = examination.LastName;
+            viewModel.ExaminationDate = DateOnly.FromDateTime(examination.Date);
+            viewModel.ExaminationTime = TimeOnly.FromDateTime(examination.Date);
+            viewModel.MedicalRecord = examination.MedicalRecord;
+            viewModel.Room = examination.Room;
 
             viewModel.IsTooltipEnabled = HomePageStateManager.AreTooltipsEnabled;
 
@@ -51,6 +55,13 @@ namespace HCI_projekat.View
             viewModel.TherapyDate = null;
             viewModel.TherapyDuration = 0;
             viewModel.Notes = "";
+
+            HomePageStateManager.NavigationFrame.Navigate(new ExamineExaminationPage(_examination));
+        }
+
+        private void btnOdustani_Click(object sender, RoutedEventArgs e)
+        {
+            HomePageStateManager.NavigationFrame.Navigate(new ExamineExaminationPage(_examination));
         }
     }
 }

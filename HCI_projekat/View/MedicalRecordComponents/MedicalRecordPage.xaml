@@ -108,7 +108,13 @@
                             <DatePicker Name="dpKraj" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" />
                             <Button Name="btnPretrazi" HorizontalAlignment="Center" Content="Pretraži" Grid.Row="1" Grid.Column="2" Height="24" Grid.RowSpan="2" VerticalAlignment="Top" Margin="0,31,0,0" Click="btnPretrazi_Click" />
 
-                            <ListView Name="lwIzvestaji" Grid.Row="3" Grid.ColumnSpan="3" Margin="10" BorderBrush="Black" BorderThickness="2"></ListView>
+                            <ListView Name="lwIzvestaji" Grid.Row="3" Grid.ColumnSpan="3" Margin="10" BorderBrush="Black" BorderThickness="2">
+                                <ListView.ItemContainerStyle>
+                                    <Style TargetType="ListViewItem">
+                                        <EventSetter Event="MouseDoubleClick" Handler="ListViewItem_MouseDoubleClick" />
+                                    </Style>
+                                </ListView.ItemContainerStyle>
+                            </ListView>
                         </Grid>
                     </Border>
                 </Grid>
